@@ -1,0 +1,9 @@
+clinic-api/
+├── app/
+│   ├── main.py
+│   ├── models.py
+│   ├── routes.py
+│   ├── database.py
+├── requirements.txt
+├── README.md
+└── clinic_schema.sql
