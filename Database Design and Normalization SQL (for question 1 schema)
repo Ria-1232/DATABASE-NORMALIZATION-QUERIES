@@ -1,0 +1,29 @@
+-- Create database
+CREATE DATABASE ClinicDB;
+USE ClinicDB;
+
+-- Table: Patients
+CREATE TABLE Patients (
+    PatientID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Phone VARCHAR(15)
+);
+
+-- Table: Doctors
+CREATE TABLE Doctors (
+    DoctorID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100),
+    Specialty VARCHAR(100)
+);
+
+-- Table: Appointments
+CREATE TABLE Appointments (
+    AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
+    PatientID INT,
+    DoctorID INT,
+    AppointmentDate DATETIME NOT NULL,
+    Status VARCHAR(50) DEFAULT 'Scheduled',
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
